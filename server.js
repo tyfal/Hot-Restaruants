@@ -82,6 +82,12 @@ app.get("/api/waitlist", function(req, res) {
   return res.json(waitingArray);
 });
 
+app.get("/api/clear", function(req, res) {
+  waitingArray = [];
+  restaurants = [];
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
 // Create New restaurants - takes in JSON input
 app.post("/api/restaurants", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
